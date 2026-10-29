@@ -26,4 +26,6 @@ npm run dev
 
 A troca entre site e gerador é feita pelo hash da URL, então o build funciona em hospedagem estática (GitHub Pages) sem configuração de rotas.
 
+Cada push na `main` publica o site no GitHub Pages pelo workflow `.github/workflows/deploy.yml`.
+
 O PDF é gerado pela impressão do navegador ("Salvar como PDF"); o nome do arquivo sai como `Orcamento_J2G_<Cliente>_<DD-MM-AAAA>`.
