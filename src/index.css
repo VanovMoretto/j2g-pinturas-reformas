@@ -1,0 +1,83 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-navy-950: #0E1442;
+  --color-navy-900: #141D59;
+  --color-navy-800: #1B2675;
+  --color-navy-700: #253494;
+  --color-navy-100: #E6E8F4;
+  --color-navy-50: #F3F4FA;
+  --color-steel-400: #9CA3AF;
+  --color-steel-500: #6B7280;
+
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Montserrat', 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  @apply bg-white font-sans text-navy-950 antialiased;
+}
+
+.bg-blueprint {
+  background-image:
+    linear-gradient(to right, rgb(255 255 255 / 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.06) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.sheet-viewport {
+  overflow: hidden;
+}
+
+.sheet {
+  width: 210mm;
+  min-height: 297mm;
+  margin-inline: auto;
+  padding: 12mm;
+  background: #fff;
+  box-shadow: 0 1px 3px rgb(15 23 42 / 0.12), 0 12px 32px -12px rgb(15 23 42 / 0.25);
+  transform: scale(var(--sheet-scale, 1));
+  transform-origin: top left;
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 12mm;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  html,
+  body {
+    background: #fff;
+  }
+
+  .sheet-viewport {
+    height: auto !important;
+    overflow: visible;
+  }
+
+  .sheet {
+    width: auto;
+    min-height: 0;
+    padding: 0;
+    box-shadow: none;
+    transform: none;
+  }
+}
+
+.bg-blueprint-light {
+  background-image:
+    linear-gradient(to right, rgb(27 38 117 / 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(27 38 117 / 0.07) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
